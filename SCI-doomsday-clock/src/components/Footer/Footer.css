@@ -1,0 +1,12 @@
+footer
+{
+    height: 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-box-shadow: var(--cover-box-shadow);
+    -moz-box-shadow: var(--cover-box-shadow);
+    box-shadow: var(--cover-box-shadow);
+}
