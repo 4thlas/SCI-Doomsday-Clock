@@ -1,7 +1,7 @@
-import { useState } from "react"
-import "./Clock.css"
 import "@/index.css"
 import { parseTimeUnit } from "@/utils"
+import { useState } from "react"
+import "./Clock.css"
 import { getTimeLeft } from "../../utils"
 
 function Clock()
@@ -10,14 +10,7 @@ function Clock()
 
     const updateTime = () =>
     {
-        const currDate = new Date();
-        const timeLeft = getTimeLeft(currDate)
-
-        console.log();
-
-        setTimeLeft(currDate.getUTCDay());
-
-        return currDate;
+        setTimeLeft(getTimeLeft());
     }
 
     setInterval(updateTime, 1000)
@@ -25,15 +18,15 @@ function Clock()
     return <div className="clock">
         {timeLeft && <>
             <h1>
-                {parseTimeUnit(timeLeft.getHours())}
+                {parseTimeUnit(timeLeft.hours)}
             </h1>
             <h1 className="separator">:</h1>
             <h1>
-                {parseTimeUnit(timeLeft.getMinutes())}
+                {parseTimeUnit(timeLeft.minutes)}
             </h1>
             <h1 className="separator">:</h1>
             <h1>
-                {parseTimeUnit(timeLeft.getSeconds())}
+                {parseTimeUnit(timeLeft.seconds)}
             </h1>
         </>}
     </div>

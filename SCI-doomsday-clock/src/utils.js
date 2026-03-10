@@ -13,26 +13,37 @@ export function parseTimeUnit(unit)
     return unit;
 }
 
-export function getTimeLeft(currDate)
+export function getTimeLeft()
 {
-        const doomDate = new Date();
+    const now = new Date();
+    let daysLeft = 0;
+    now.setHours(0,0,0);
+    let today = now.getDay();
 
-        let daysLeft = 0;
-        let today = currDate.getUTCDay();
+    while (today != 4)
+    {
+        daysLeft++;
+        today++;
 
-        while (today != 6)
+        if (today > 6)
         {
-            daysLeft++;
-            today++;
-
-            if (today > 6)
-            {
-                today = 0;
-            }
+            today = 0;
         }
+    }
 
-        let msLeft = Math.abs(doomDate.getDate() - currDate.getDate())
-        
+    let doomsDate = new Date();
 
-        return doomDate.setDate(doomDate.getDate() + daysLeft)
+    doomsDate.setDate(now.getDate() + daysLeft);
+    console.log(doomsDate);
+
+    const endTime = new Date(doomsDate) / 1000;
+
+
+    var elapsed = new Date() / 1000;
+    var totalSec =  endTime - elapsed;
+    var h = parseInt( totalSec / 3600 )
+    var m = parseInt( totalSec / 60 ) % 60;
+    var s = parseInt(totalSec % 60, 10);
+
+    return {hours: h, minutes: m, seconds: s};
 }
