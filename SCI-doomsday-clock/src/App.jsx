@@ -1,5 +1,6 @@
 import "@/index.css"
 import NavBar from "@/components/NavBar/NavBar"
+import Clock from "@/components/Clock/Clock"
 import Footer from "@/components/Footer/Footer"
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <NavBar title="SCI Doomsday Clock" />
     
     <main>
-      test
+      <Clock />
     </main>
     
     <Footer />

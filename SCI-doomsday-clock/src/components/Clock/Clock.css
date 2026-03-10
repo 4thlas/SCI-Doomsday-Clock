@@ -1,0 +1,35 @@
+.clock
+{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    color: var(--main-accent);
+}
+
+.clock h1
+{
+    font-size: var(--clock-text-size);
+}
+
+.clock > .separator
+{
+    display: none;
+}
+
+@media (min-width: 600px)
+{
+    .clock
+    {
+        flex-direction: row;
+        gap: 15px
+    }
+
+    .clock > .separator
+    {
+        display: block;
+    }
+}
+

@@ -2,6 +2,8 @@
 
 :root
 {
+  --clock-text-size: 4em;
+
   --text-color: #FFE9D7;
   --main-accent: #F3456B;
   --bg-primary: #222936;
@@ -34,14 +36,21 @@ main
 {
   flex: 1;
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1, h2
 {
   padding: 5px 0;
+  margin: 0;
 }
 h3
 {
   padding: 3px 0;
+  margin: 0;
 }
 
