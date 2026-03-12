@@ -1,0 +1,44 @@
+
+.time-unit
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 15px
+}
+
+.time-unit h1
+{
+    width: 78px;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+
+    font-size: var(--clock-text-size);
+    color: var(--main-accent);
+}
+
+.time-unit span
+{
+    font-size: 2em;    
+}
+
+
+@media (min-width: 600px)
+{
+    .time-unit
+    {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 0;
+    }
+
+    .time-unit span
+    {
+        font-size: inherit;    
+    }
+}

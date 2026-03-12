@@ -3,6 +3,7 @@ import { parseTimeUnit } from "@/utils"
 import { useState } from "react"
 import "./Clock.css"
 import { getTimeLeft } from "../../utils"
+import TimeUnit from "../TimeUnit/TimeUnit"
 
 function Clock()
 {
@@ -17,17 +18,19 @@ function Clock()
 
     return <div className="clock">
         {timeLeft && <>
-            <h1>
-                {parseTimeUnit(timeLeft.hours)}
-            </h1>
+            <TimeUnit label="Days" value={timeLeft.days} />
+
             <h1 className="separator">:</h1>
-            <h1>
-                {parseTimeUnit(timeLeft.minutes)}
-            </h1>
+
+            <TimeUnit label="Hours" value={timeLeft.hours} />
+
             <h1 className="separator">:</h1>
-            <h1>
-                {parseTimeUnit(timeLeft.seconds)}
-            </h1>
+
+            <TimeUnit label="Minutes" value={timeLeft.minutes} />
+            
+            <h1 className="separator">:</h1>
+
+            <TimeUnit label="Seconds" value={timeLeft.seconds} />
         </>}
     </div>
 }

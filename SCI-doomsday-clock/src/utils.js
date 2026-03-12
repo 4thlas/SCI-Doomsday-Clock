@@ -20,7 +20,7 @@ export function getTimeLeft()
     now.setHours(0,0,0);
     let today = now.getDay();
 
-    while (today != 4)
+    while (today != 2)
     {
         daysLeft++;
         today++;
@@ -34,16 +34,20 @@ export function getTimeLeft()
     let doomsDate = new Date();
 
     doomsDate.setDate(now.getDate() + daysLeft);
-    console.log(doomsDate);
-
+    doomsDate.setHours(0,0,0,0);
+    
     const endTime = new Date(doomsDate) / 1000;
 
-
     var elapsed = new Date() / 1000;
-    var totalSec =  endTime - elapsed;
-    var h = parseInt( totalSec / 3600 )
-    var m = parseInt( totalSec / 60 ) % 60;
-    var s = parseInt(totalSec % 60, 10);
 
-    return {hours: h, minutes: m, seconds: s};
+    var totalSec =  endTime - elapsed;
+
+
+    var h = parseInt( totalSec / 3600 );
+    var d = parseInt( h / 24);
+    h -= d * 24;
+    var m = parseInt( totalSec / 60 ) % 60;
+    var s = parseInt( totalSec % 60, 10 );
+
+    return {days: d, hours: h, minutes: m, seconds: s};
 }
