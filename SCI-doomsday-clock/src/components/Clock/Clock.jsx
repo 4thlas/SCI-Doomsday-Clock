@@ -1,6 +1,6 @@
 import "@/index.css"
 import { parseTimeUnit } from "@/utils"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./Clock.css"
 import { getTimeLeft } from "../../utils"
 import TimeUnit from "../TimeUnit/TimeUnit"
@@ -14,7 +14,11 @@ function Clock()
         setTimeLeft(getTimeLeft());
     }
 
-    setInterval(updateTime, 1000)
+    useEffect(() =>
+    {
+        updateTime();
+        setInterval(updateTime, 1000)        
+    }, []);
 
     return <div className="clock">
         {timeLeft && <>
